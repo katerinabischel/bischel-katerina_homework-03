@@ -16,9 +16,9 @@
 ├── ENVS193DS_workshop-08.Rproj
 ├── README.md                                 # information about the repository
 ├── code
-│   ├── homework-starter-doc_KEY.html         # rendered HTML of key code
-│   ├── homework-starter-doc_KEY.qmd          # key code file
-│   ├── homework-starter-doc_KEY_files        # files associated with rendered HTML
+│   ├── kb_hw_03.html         # rendered HTML of key code
+│   ├── kb_hw_03.qmd          # key code file
+│   ├── kb_hw_03_files        # files associated with rendered HTML
 │   │   ├── figure-html                       # all figure outputs (explore this file!)
 │   │   └── libs                              # accessory files for HTML
 │   └── homework-starter-doc_TEMPLATE.qmd     # template code file
