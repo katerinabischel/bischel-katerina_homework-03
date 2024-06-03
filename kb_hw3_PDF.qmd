@@ -1,0 +1,74 @@
+---
+title: "Homework 3 PDF"
+author: "Katerina Bischel"
+format: pdf
+editor: visual
+---
+
+## 
+
+```{r}
+#https://github.com/katerinabischel/bischel-katerina_homework-03.git
+# general use
+library(tidyverse)
+library(readxl)
+library(here)
+library(janitor)
+
+# visualizing pairs
+library(GGally)
+
+# model selection
+library(MuMIn)
+
+# model predictions
+library(ggeffects)
+
+# model tables
+library(gtsummary)
+library(flextable)
+library(modelsummary)
+
+drought_exp <- read_xlsx(path = here("data", 
+                                     "Valliere_etal_EcoApps_Data.xlsx"),
+                         sheet = "First Harvest")
+
+# quick look at data 
+str(drought_exp)
+```
+
+```{r}
+class(drought_exp)
+```
+
+```{r}
+drought_exp_clean <- drought_exp |> 
+  clean_names() |>   # Standardize column names
+  mutate(
+    # Decode categorical variables with more descriptive names
+    species = as.factor(species),
+    water = as.factor(water),
+    species_name = case_when(
+      species == "ENCCAL" ~ "Encelia californica",  # Bush sunflower
+      species == "ESCCAL" ~ "Eschscholzia californica",  # California poppy
+      species == "PENCEN" ~ "Penstemon centranthifolius",  # Scarlet bugler
+      species == "GRICAM" ~ "Grindelia camporum",  # Great valley gumweed
+      species == "SALLEU" ~ "Salvia leucophylla",  # Purple sage
+      species == "STIPUL" ~ "Nasella pulchra",  # Purple needlegrass
+      species == "LOTSCO" ~ "Acmispon glaber"  # Deerweed
+    ),
+    water_treatment = case_when(
+      water == "WW" ~ "Well watered",
+      water == "DS" ~ "Drought stressed"
+    )
+  ) |> 
+  relocate(species_name, .after = species) |>   # Move species_name after species column
+  relocate(water_treatment, .after = water) |>   # Move water_treatment after water column
+  # Optional: Check for and handle missing values if necessary
+  # mutate(across(where(is.numeric), ~if_else(is.na(.), median(., na.rm = TRUE), .)))
+  # For an overview of the cleaned data
+  glimpse()
+
+# Optionally, check for missing values
+sum(is.na(drought_exp_clean))
+```
