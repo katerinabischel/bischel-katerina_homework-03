@@ -28,7 +28,7 @@
 
 # Rendered output
 
-The rendered .html for this repo is [here](https://an-bui.github.io/ENVS193DS_workshop-08/code/homework-starter-doc_KEY.html).
+The rendered .html for this repo is [here](https://katerina-bischel.github.io/ENVS193DS/bischel-katerina_homework-03/kb_hw_03.html).
 
 # For full credit
 
