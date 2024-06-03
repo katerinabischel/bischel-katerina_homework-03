@@ -28,7 +28,7 @@
 
 # Rendered output
 
-The rendered .html for this repo is [here](https://github.com/katerinabischel/bischel-katerina_homework-03/blob/main/kb_hw_03.html).
+The rendered .html for this repo is [here](file:///Users/ktdroppa/Desktop/ENVS-193DS/bischel-katerina_homework-03/kb_hw_03.html).
 
 # For full credit
 
